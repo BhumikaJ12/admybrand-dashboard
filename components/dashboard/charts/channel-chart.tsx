@@ -61,7 +61,7 @@ export function ChannelChart() {
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
-           )}
+           )) as any}
           </ResponsiveContainer>
         </div>
       </CardContent>
