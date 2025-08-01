@@ -33,7 +33,6 @@ export function ChannelChart() {
       <CardContent>
         <div className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
-            {((() => (
             <BarChart data={mockBarChartData}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
               <XAxis
@@ -61,7 +60,6 @@ export function ChannelChart() {
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
-           )) as any)}
           </ResponsiveContainer>
         </div>
       </CardContent>

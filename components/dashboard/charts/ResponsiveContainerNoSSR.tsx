@@ -1,18 +1,32 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { type ResponsiveContainerProps } from 'recharts';
-import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
+import {
+  type ResponsiveContainerProps,
+  type ResponsiveContainer as RechartsResponsiveContainer,
+} from 'recharts';
+import {
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  type ReactNode,
+} from 'react';
 
-const DynamicResponsiveContainer = dynamic<ResponsiveContainerProps>(
+const DynamicResponsiveContainer = dynamic<
+  ResponsiveContainerProps & { children: ReactNode }
+>(
   () =>
     import('recharts').then(
       (mod) =>
         mod.ResponsiveContainer as ForwardRefExoticComponent<
-          ResponsiveContainerProps & RefAttributes<HTMLDivElement>
+          ResponsiveContainerProps & RefAttributes<RechartsResponsiveContainer>
         >
     ),
   { ssr: false }
 );
 
-export default DynamicResponsiveContainer;
+export default function ResponsiveContainerNoSSR({
+  children,
+  ...props
+}: ResponsiveContainerProps & { children: ReactNode }) {
+  return <DynamicResponsiveContainer {...props}>{children}</DynamicResponsiveContainer>;
+}
