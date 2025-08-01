@@ -34,6 +34,7 @@ export function DeviceChart() {
       <CardContent>
         <div className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
+            {() => (
             <PieChart>
               <Pie
                 data={mockDonutChartData}
@@ -58,6 +59,7 @@ export function DeviceChart() {
               />
               <Legend />
             </PieChart>
+           )}
           </ResponsiveContainer>
         </div>
       </CardContent>
