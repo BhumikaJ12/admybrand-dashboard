@@ -18,6 +18,8 @@ import {
 
 // ✅ Fix: Import all of recharts and use ResponsiveContainer this way
 import * as Recharts from 'recharts';
+import ResponsiveContainer from '@/components/charts/ResponsiveContainerNoSSR';
+
 
 import { mockDonutChartData } from '@/lib/mock-data';
 
