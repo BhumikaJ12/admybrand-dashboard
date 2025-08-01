@@ -1,10 +1,29 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+} from 'recharts';
+
+// ✅ Fix: Import all of recharts and use ResponsiveContainer this way
+import * as Recharts from 'recharts';
+
 import { mockDonutChartData } from '@/lib/mock-data';
 
 export function DeviceChart() {
+  const { ResponsiveContainer } = Recharts; // ✅ Safe usage for JSX
+
   return (
     <Card>
       <CardHeader>
@@ -30,7 +49,7 @@ export function DeviceChart() {
                   <Cell key={`cell-${index}`} fill={entry.fill} />
                 ))}
               </Pie>
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: 'hsl(var(--background))',
                   border: '1px solid hsl(var(--border))',

@@ -1,10 +1,30 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from 'recharts';
+
+// ✅ Fix: Import everything from recharts to access ResponsiveContainer safely
+import * as Recharts from 'recharts';
+
 import { mockLineChartData } from '@/lib/mock-data';
 
 export function RevenueChart() {
+  const { ResponsiveContainer } = Recharts; // ✅ Fix: Destructure ResponsiveContainer
+
   return (
     <Card>
       <CardHeader>
@@ -18,41 +38,41 @@ export function RevenueChart() {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={mockLineChartData}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 className="text-xs text-muted-foreground"
                 tick={{ fontSize: 12 }}
               />
-              <YAxis 
+              <YAxis
                 className="text-xs text-muted-foreground"
                 tick={{ fontSize: 12 }}
               />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: 'hsl(var(--background))',
                   border: '1px solid hsl(var(--border))',
                   borderRadius: '6px',
                 }}
               />
-              <Line 
-                type="monotone" 
-                dataKey="revenue" 
-                stroke="#3b82f6" 
+              <Line
+                type="monotone"
+                dataKey="revenue"
+                stroke="#3b82f6"
                 strokeWidth={3}
                 dot={{ fill: '#3b82f6', strokeWidth: 2, r: 4 }}
                 activeDot={{ r: 6, stroke: '#3b82f6', strokeWidth: 2 }}
               />
-              <Line 
-                type="monotone" 
-                dataKey="users" 
-                stroke="#8b5cf6" 
+              <Line
+                type="monotone"
+                dataKey="users"
+                stroke="#8b5cf6"
                 strokeWidth={2}
                 dot={{ fill: '#8b5cf6', strokeWidth: 2, r: 3 }}
               />
-              <Line 
-                type="monotone" 
-                dataKey="conversions" 
-                stroke="#10b981" 
+              <Line
+                type="monotone"
+                dataKey="conversions"
+                stroke="#10b981"
                 strokeWidth={2}
                 dot={{ fill: '#10b981', strokeWidth: 2, r: 3 }}
               />

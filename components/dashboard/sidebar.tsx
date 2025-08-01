@@ -56,8 +56,8 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="flex flex-col h-full overflow-hidden">
-          <div className="flex-shrink-0 pt-6 pb-4 min-h-[120px]">
+        <div className="flex flex-col h-full min-h-0 overflow-hidden">
+          <div className="flex-shrink-0 pt-6 pb-4">
             <nav className="mt-6 px-4 space-y-1">
               {navigation.map((item) => {
                 const Icon = item.icon;

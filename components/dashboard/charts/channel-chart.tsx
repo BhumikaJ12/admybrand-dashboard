@@ -1,10 +1,30 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from 'recharts';
+
+// ✅ Fix: Import all of recharts and use ResponsiveContainer safely
+import * as Recharts from 'recharts';
+
 import { mockBarChartData } from '@/lib/mock-data';
 
 export function ChannelChart() {
+  const { ResponsiveContainer } = Recharts;
+
   return (
     <Card>
       <CardHeader>
@@ -18,27 +38,27 @@ export function ChannelChart() {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={mockBarChartData}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 className="text-xs text-muted-foreground"
                 tick={{ fontSize: 12 }}
                 angle={-45}
                 textAnchor="end"
                 height={60}
               />
-              <YAxis 
+              <YAxis
                 className="text-xs text-muted-foreground"
                 tick={{ fontSize: 12 }}
               />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: 'hsl(var(--background))',
                   border: '1px solid hsl(var(--border))',
                   borderRadius: '6px',
                 }}
               />
-              <Bar 
-                dataKey="value" 
+              <Bar
+                dataKey="value"
                 fill="#3b82f6"
                 radius={[4, 4, 0, 0]}
               />

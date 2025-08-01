@@ -114,7 +114,7 @@ export function DataTable() {
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="mb-2">Campaign Performance</CardTitle>
+            <CardTitle>Campaign Performance</CardTitle>
             <CardDescription>
               Detailed performance metrics for all active campaigns
             </CardDescription>
