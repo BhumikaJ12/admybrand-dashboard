@@ -1,16 +1,14 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import type { ResponsiveContainerProps } from 'recharts';
-import type { ForwardRefExoticComponent, RefAttributes } from 'react';
-import { ComponentType } from 'react';
+import { type ResponsiveContainerProps } from 'recharts';
+import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
 
-// Cast the dynamic import properly
-const DynamicResponsiveContainer = dynamic(
+const DynamicResponsiveContainer = dynamic<ResponsiveContainerProps>(
   () =>
     import('recharts').then(
       (mod) =>
-        mod.ResponsiveContainer as ComponentType<
+        mod.ResponsiveContainer as ForwardRefExoticComponent<
           ResponsiveContainerProps & RefAttributes<HTMLDivElement>
         >
     ),

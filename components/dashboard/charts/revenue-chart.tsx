@@ -18,10 +18,8 @@ import {
 } from 'recharts';
 
 // ✅ Fix: Import everything from recharts to access ResponsiveContainer safely
-import * as Recharts from 'recharts';
+
 import ResponsiveContainer from '@/components/dashboard/charts/ResponsiveContainerNoSSR';
-
-
 import { mockLineChartData } from '@/lib/mock-data';
 
 export function RevenueChart() {
