@@ -35,7 +35,7 @@ export function RevenueChart() {
       <CardContent>
         <div className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
-             {(() => (
+             {((() => (
             <LineChart data={mockLineChartData}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
               <XAxis
@@ -77,7 +77,7 @@ export function RevenueChart() {
                 dot={{ fill: '#10b981', strokeWidth: 2, r: 3 }}
               />
             </LineChart>
-            )) as any}
+           )) as any)}
           </ResponsiveContainer>
         </div>
       </CardContent>
