@@ -19,7 +19,7 @@ import {
 
 // ✅ Fix: Import all of recharts and use ResponsiveContainer safely
 import * as Recharts from 'recharts';
-import ResponsiveContainer from '@/components/charts/ResponsiveContainerNoSSR';
+import ResponsiveContainer from '@/components/dashboard/charts/ResponsiveContainerNoSSR';
 
 
 import { mockBarChartData } from '@/lib/mock-data';

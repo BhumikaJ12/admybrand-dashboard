@@ -2,18 +2,19 @@
 
 import dynamic from 'next/dynamic';
 import type { ResponsiveContainerProps } from 'recharts';
+import type { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { ComponentType } from 'react';
 
+// Cast the dynamic import properly
 const DynamicResponsiveContainer = dynamic(
-  async () => {
-    const mod = await import('recharts');
-    return mod.ResponsiveContainer;
-  },
+  () =>
+    import('recharts').then(
+      (mod) =>
+        mod.ResponsiveContainer as ComponentType<
+          ResponsiveContainerProps & RefAttributes<HTMLDivElement>
+        >
+    ),
   { ssr: false }
 );
 
-// TypeScript workaround to use as JSX component
-const ResponsiveContainerWrapper = (props: ResponsiveContainerProps) => {
-  return <DynamicResponsiveContainer {...props} />;
-};
-
-export default ResponsiveContainerWrapper;
+export default DynamicResponsiveContainer;
