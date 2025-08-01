@@ -23,7 +23,6 @@ import ResponsiveContainer from '@/components/dashboard/charts/ResponsiveContain
 import { mockLineChartData } from '@/lib/mock-data';
 
 export function RevenueChart() {
-  const { ResponsiveContainer } = Recharts; // ✅ Fix: Destructure ResponsiveContainer
 
   return (
     <Card>

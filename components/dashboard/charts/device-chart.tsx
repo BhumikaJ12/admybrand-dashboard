@@ -22,7 +22,6 @@ import ResponsiveContainer from '@/components/dashboard/charts/ResponsiveContain
 import { mockDonutChartData } from '@/lib/mock-data';
 
 export function DeviceChart() {
-  const { ResponsiveContainer } = Recharts; // ✅ Safe usage for JSX
 
   return (
     <Card>

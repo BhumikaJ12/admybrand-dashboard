@@ -22,8 +22,6 @@ import ResponsiveContainer from '@/components/dashboard/charts/ResponsiveContain
 import { mockBarChartData } from '@/lib/mock-data';
 
 export function ChannelChart() {
-  const { ResponsiveContainer } = Recharts;
-
   return (
     <Card>
       <CardHeader>
